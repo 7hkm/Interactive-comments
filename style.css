@@ -1,0 +1,231 @@
+html{
+    box-sizing: border-box;
+    height:100%;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background-color:  hsl(239, 57%, 85%);
+    flex-direction: column;
+    font-size: 16px;
+    font-family: 'Rubik';
+}
+div {
+    display: flex;
+    width: auto;
+    align-self:center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    padding:0;
+    
+}
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+.main{
+    width: auto;
+    background-color: white;
+    flex-direction: row;
+    border-radius: 10px;
+    padding: 10px 10px ;
+    margin: 20px;
+    width: 50%;
+    box-shadow: 10px,10px,10px,10px;
+}
+.sec{
+    
+    flex-direction: column;
+    width: 100%;
+    align-self:flex-start;
+    height: 100%;
+   
+}
+.left{
+    height: 70px;
+    width: 30px;
+    margin: 10px ;
+    align-items: center;
+    border-radius: 5px;
+    background-color:   hsl(223, 19%, 93%);
+}
+.comment div{
+    color: blue;
+    
+
+}
+button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color:   inherit;
+}
+.votes{
+    height: 20px;
+    margin:0;
+    border-radius: 5px;
+    background-color:  inherit;
+}
+.left button:hover{
+    background-color: white;
+
+}
+.rplybtn{
+    height: 100%;
+    display: flex;
+    align-self: first baseline;
+}
+.rplybtn button , .date,.name{
+    font-weight: bolder;
+}
+.rplybtn button{
+    color:hsl(238, 40%, 52%);
+}
+.date{
+    width: 55%;
+    margin: 5px 20px;
+    color:hsl(211, 10%, 45%);
+}
+button:hover{
+    color: inherit; 
+}
+img{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 2px 8px;
+}
+.comment{
+    margin: 0 7px 9px 10px;
+}
+.replies{
+    position: relative;
+    right: -100px;
+}
+.add{
+    width: auto;
+    height: 15%;
+    position: fixed;
+    bottom: 0px;
+    left: 20%;
+    z-index: 2;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+}
+input{
+  
+    height: 70%;
+    display: flex ;
+    padding: 15px;
+    z-index: 2;
+    padding-top: 0px;
+    vertical-align: top;
+    border: none;
+}
+
+.add button{
+    width : 50px;
+    height: 45%;
+    margin: 5px;
+    color: white;
+    border-radius: 5px;
+    background-color: hsl(238, 40%, 52%);
+}
+
+.main:last-child{
+    margin-bottom: 15%;
+    }
+.delete{
+    display: flex;
+    color: red;
+    margin-top: 8px;
+    margin-left: 10%;
+    font-weight: 700;
+}
+.add button:hover{
+    color: hsl(238, 40%, 52%);
+}
+.delete:hover{
+    color:white;
+}
+input:placeholder-shown{
+    position: relative;
+    
+}
+
+@media (width < 600px) {
+    body{
+        padding: 0;
+    }
+    .main{
+        flex-direction: column;
+        margin: 20px,20px;
+        width: 90%;
+    }
+    .left{
+       order: 1;   
+       flex-direction: row; 
+       height: 30px;
+       width: 80px;   
+       align-self: flex-start;
+    }
+   .delete{
+    margin: 0;
+    width: 50px;
+    position: relative;
+    bottom:  -90px;
+    right: 15%;
+   }
+   .replies{
+    
+    right: 0;
+    
+    }
+.main:last-child{
+    margin-top: 20px;
+    margin-bottom: 30%;
+
+    }
+    .add{
+      flex-direction: column;
+    }
+    input{
+        position: relative;
+        height: 25px;
+        bottom: -20%;
+        border: none;
+        padding-top: 10px;
+    }
+    .add{
+        padding-bottom:2% ;
+        width: 65%;
+    }
+   
+    .add button{
+        position: relative;
+        right: -70%;
+        top: -70%;
+        width : 50px;
+        margin: 5px;
+        color: white;
+        border-radius: 5px;
+        background-color: hsl(238, 40%, 52%);
+    }
+    
+}
