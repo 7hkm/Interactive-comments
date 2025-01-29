@@ -1,6 +1,6 @@
 const body = document.querySelector("body")
 let selected
-let index
+let index = 0
 const input = document.querySelector('input')
 function CreateComment(image , user ,when,vote,content ,rplyingTo,userComment,id ){
   let originalScore = 0
@@ -68,7 +68,7 @@ function CreateComment(image , user ,when,vote,content ,rplyingTo,userComment,id
     input.value='@' + user
     index = id
   })}
-  if(rplyingTo){
+  if(rplyingTo && userComment ==false){
     main.classList.add('replies')
     comment.innerHTML =  "@" +rplyingTo+" "+ content
   }
@@ -107,8 +107,8 @@ fetch('./data.json') // Adjust the path if it's in a subfolder
       
       if(input.value){
         if(selected){
-          data.comments[index-1].push({
-            "content": input.value,
+          data.comments[0].replies.push({
+          "content": input.value,
           "createdAt": "now",
           "score": 2,
           "replyingTo": selected,
@@ -119,7 +119,8 @@ fetch('./data.json') // Adjust the path if it's in a subfolder
             },
             "username": data.currentUser.username
           }
-          })
+          }
+        )
         }
         data.comments.push({
           "content": input.value,
@@ -140,7 +141,7 @@ fetch('./data.json') // Adjust the path if it's in a subfolder
     }
     })
     data.comments.forEach(comment => {
-        CreateComment(comment.user.image.webp,comment.user.username, comment.createdAt, comment.score, comment.content,false,comment.Id);
+        CreateComment(comment.user.image.webp,comment.user.username, comment.createdAt, comment.score, comment.content,null,false,comment.id);
        if(comment.replies){
         for(let i = 0;i < comment.replies.length;i++)
         CreateComment(comment.replies[i].user.image.webp,comment.replies[i].user.username, comment.replies[i].createdAt, comment.replies[i].score,comment.replies[i].content,comment.replies[i].replyingTo,false)
